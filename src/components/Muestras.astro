@@ -1,43 +1,41 @@
 ---
-import "photoswipe/style.css"
-
+import "photoswipe/style.css";
 ---
 
-  <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 max-w-6xl gap-6 mx-auto pt-6" id="gallery">
-    {
-        Array.from({ length: 14 }).map((_, i) => (
-        <a class="rounded-lg overflow-hidden shadow-xl shadow-amber-400/10 hover:shadow-2xl hover:shadow-amber-500/75 hover:scale-105 transition-all duration-300"
-        href={`src/assets/galeria/img-${i + 1}.webp`}
+<div
+  class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 max-w-6xl gap-6 mx-auto pt-6"
+  id="gallery"
+>
+  {
+    Array.from({ length: 14 }).map((_, i) => (
+      <a
+        class="rounded-lg overflow-hidden shadow-xl shadow-amber-400/10 hover:shadow-2xl hover:shadow-amber-500/75 hover:scale-105 transition-all duration-300"
+        href={`/images/img-${i + 1}.webp`}
         target="_blank"
-        data-pswp-width="800" 
-        data-pswp-height="800" 
-        data-cropped="true" 
-        >
+        data-pswp-width="800"
+        data-pswp-height="800"
+        data-cropped="true"
+      >
+        <img
+          src={`/images/img-${i + 1}.webp`}
+          alt=""
+          loading="eager"
+        />
+      </a>
+    ))
+  }
+</div>
 
-            <img src={`src/assets/galeria/img-${i + 1}.webp`}
-            alt=""
-            loading="eager"
-            />
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
 
-        </a>
-    )
-    
-        
-    )
-    }
-
-  </div>
-
-  <script>
-    import PhotoSwipeLightbox from 'photoswipe/lightbox';
-    import 'photoswipe/style.css';
-
-    const lightbox = new PhotoSwipeLightbox({
-    gallery: '#gallery',
-    children: 'a',
-    showHideAnimationType: 'zoom',
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    showHideAnimationType: "zoom",
     secondaryZoomLevel: 1.2,
-    pswpModule: () => import('photoswipe')
-    });
-    lightbox.init();
-  </script>
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+</script>
