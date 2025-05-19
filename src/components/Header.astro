@@ -1,0 +1,112 @@
+---
+import JLogo from './../assets/logo.svg';
+const navItems = [
+  {
+    title: "Inicio",
+    label: "inicio",
+    url: "/#inicio",
+  },
+  {
+    title: "Muestras",
+    label: "muestras",
+    url: "/#muestras",
+  },
+  {
+    title: "Envíos",
+    label: "envios",
+    url: "/#envios",
+  },
+];
+---
+
+<header class="fixed top-0 z-10 w-full px-4 sm:px-14">
+  <div class="w-full sm:w-auto mx-auto flex items-center justify-between px-4 sm:px-14 py-5">
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <div class=" flex items-center justify-center">
+        <JLogo width={40} height={40} fill='#f4be30' />
+      </div>
+      <span class="text-2xl font-bold tracking-tight">JShop</span>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="flex sm:gap-6 text-sm font-medium">
+      {
+        navItems.map((link) => (
+        <a
+        class="relative block px-4 py-2 transition rounded-full whitespace-nowrap overflow-hidden text-ellipsis group"
+        aria-label={link.label}
+        href={link.url}
+      >
+        {link.title}
+        <span class="absolute left-4 bottom-1 h-0.5 w-[calc(100%-2rem)] bg-current transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
+
+    const callback = (entries: any[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navItems.forEach((item) => {
+          if (item.getAttribute("aria-label") == entry.target.id) {
+            // Agregamos la clase para el subrayado
+            item.querySelector('span')?.classList.add("scale-x-100");
+          } else {
+            // Removemos la clase para el subrayado
+            item.querySelector('span')?.classList.remove("scale-x-100");
+          }
+        });
+      }
+    });
+  };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      }
+    };
+  });
+</script>
+
+<style>
+  header {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+    
+  }
+  @keyframes nav-shadown {
+    to {
+
+      backdrop-filter: blur(8px);
+      background-color: rgba(110, 90, 22, 0.5);
+
+    }
+
+    
+  }
+</style>

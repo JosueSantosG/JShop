@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Envios from "../components/Envios.astro";
+import Bento from "../components/Bento.astro";
+import Muestras from "../components/Muestras.astro";
+---
+
+<Layout
+  title="JShop - ¡Has tu pedido ya!"
+  description="Productos personalizados para guardar tus recuerdos favoritos: imanes, tazas y mucho más. ¡Ideales para regalar o consentirte!. Puedes conocer más sobre los productos que ofrecemos en JShop."
+>
+  <main class="px-4">
+    <SectionContainer class="pt-20" id="inicio">
+      <Hero />
+    </SectionContainer>
+  </main>
+  <div class="space-y-24 px-4">
+    <SectionContainer class="">
+      <Bento />
+    </SectionContainer>
+    <SectionContainer class="pt-2" id="muestras">
+      <h2 class="flex items-center mb-6 text-3xl font-bold gap-x-3">
+        Muestras
+      </h2>
+      <Muestras />
+    </SectionContainer>
+
+    <SectionContainer class="pb-30 pt-2" id="envios">
+      <h2 class="flex items-center mb-6 text-3xl font-bold gap-x-3">Envíos</h2>
+      <Envios />
+    </SectionContainer>
+  </div>
+</Layout>
