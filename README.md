@@ -2,9 +2,8 @@
 
 ✨ **Transformamos tus recuerdos en regalos únicos** ✨
 
-En imanArt, transformamos tus fotos y recuerdos más especiales en productos únicos y llenos de cariño. Desde imanes y tazas hasta otros artículos personalizados, creamos piezas ideales para regalar, decorar tu espacio o consentirte a ti mismo.
+En imanArt, transformamos tus fotos y recuerdos más especiales en productos únicos y llenos de cariño. Creamos imanes decorativos y personalizados para dar vida a tu nevera, oficina o cualquier superficie metálica. ¡Ideal para regalar o disfrutar en casa!
 
-![proyecto3](https://github.com/user-attachments/assets/40c91c3e-77e4-4509-a262-0d33a18377ee)
-
+![imanArt](image.png)
 ---
-© 2025 imanArt - Todos los derechos reservados
+© imanArt - Todos los derechos reservados
